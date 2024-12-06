@@ -40,6 +40,10 @@ const express = require('express');
            res.status(500).json({ error: err.message });
        }
    });
+   router.delete('/:id', (req, res) => {
+    const pollId = req.params.id;
+    res.status(200).json({ message });
+   });
 
    // Get poll results
    router.get('/polls/:id', async (req, res) => {
