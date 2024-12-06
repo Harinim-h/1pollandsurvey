@@ -10,6 +10,14 @@ require('dotenv').config();
    const pollRoutes = require('./routes/pollRoutes');
    app.use('/api', pollRoutes);
 app.use(express.json());
+app.post('/api/polls', (req, res) => {
+    if (!title || !options) {
+        return res.status(400).json({ error: 'Title and options are required' });
+      }
+      res.status(201).json({ message: 'Poll created successfully' });
+});
+
+    const { title, options } = req.body; 
    app.use(bodyParser.json());
    app.use(cors());
 
