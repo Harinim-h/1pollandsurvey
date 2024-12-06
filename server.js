@@ -9,7 +9,7 @@ require('dotenv').config();
    const app = express();
    const pollRoutes = require('./routes/pollRoutes');
    app.use('/api', pollRoutes);
-
+app.use(express.json());
    app.use(bodyParser.json());
    app.use(cors());
 
